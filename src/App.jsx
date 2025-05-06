@@ -2,22 +2,28 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 function App() {
-  const [products, setProducts] = useState([])
+  const [movies, setMovies] = useState([])
 
 
   useEffect(() => {
-    async function fetchProducts() {
-      const {data} = await axios.get('http://127.0.0.1:8000/api/movies/693134/')
-      console.log(data)
-      setProducts(data)
+    const fetchMovies = async() => {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/api/movies/693134/')
+        setMovies(response.data.results)
+        console.log(movies)
+      } catch(err) {
+          console.log(err)
+      }
     }
-    fetchProducts();
+    fetchMovies();
   }, [])
 
   return (
     <>
       <div>
-          <img src={`https://image.tmdb.org/t/p/w500/${products.backdrop_path}`} alt="picture" />
+        {movies.map((movie) => 
+          <img src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt="picture" />
+        )}
       </div>
     </>
   )
