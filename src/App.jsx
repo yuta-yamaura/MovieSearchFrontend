@@ -4,7 +4,6 @@ import axios from 'axios'
 function App() {
   const [products, setProducts] = useState([])
 
-  const TMDB_API_KEY = '5236c086a277777d7410fd8aa38d04d5'
 
   useEffect(() => {
     async function fetchProducts() {
