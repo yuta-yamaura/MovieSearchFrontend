@@ -1,13 +1,7 @@
-import { useState } from 'react'
+import { MovieSearch } from "./components/organisms/MovieSearch/MovieSearch";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      My Movie App
-    </>
-  )
+  return <MovieSearch />;
 }
 
-export default App
+export default App;
