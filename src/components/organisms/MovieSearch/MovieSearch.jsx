@@ -16,7 +16,7 @@ export const MovieSearch = () => {
   const fetchMovies = async (page) => {
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/movies/?page=${page}&year=${selectedYear}&query=${searchQuery}`
+        `${import.meta.env.VITE_API_URL}/api/movies/?page=${page}&year=${selectedYear}&query=${searchQuery}`
       );
       const data = response.data;
 
